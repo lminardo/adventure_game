@@ -11,6 +11,10 @@ public class Tile
 {
 	private BufferedImage sprite;
 	
+	/*
+	 * A tile should receive a tileSet, and an id.
+	 * The id is used to determine which subimage of the tileset should be used.
+	 */
 	public Tile(BufferedImage tileSet, int id)
 	{
 		switch(id)

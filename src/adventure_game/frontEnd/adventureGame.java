@@ -13,6 +13,7 @@ import adventure_game.world.Plane;
 
 public class adventureGame implements Runnable
 {
+	//Essential
 	private short currentFPS = 0;
 	private boolean running = false;
 	private Display display;
@@ -27,10 +28,13 @@ public class adventureGame implements Runnable
 	//Used to actually draw the shapes and images
 	private Graphics2D g;
 	
+	//What we want
 	
 	
 	
-	//Testing variables below
+	
+	
+	//What we're testing
 	int x;
 	int y;
 	boolean switchX = false;
@@ -42,15 +46,29 @@ public class adventureGame implements Runnable
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		//What we want
+		
+		
+		
+		
+		//What we're testing
+		
+		
 	}
 	
+	/*
+	 * Do anything before the main game loop starts
+	 * Add any listeners
+	 * Initialize any objects
+	 */
 	private void init()
 	{
-		/*
-		 * Do anything before the main game loop starts
-		 * Add any listeners
-		 * Initialize any objects
-		 */
+		//What we want
+		
+		
+		
+		
+		//What we're testing
 		display = new Display(width, height, title);
 		x = width/2;
 		y = height/2;
@@ -59,6 +77,12 @@ public class adventureGame implements Runnable
 	
 	private void update()
 	{
+		//What we want
+		
+		
+		
+		
+		//What we're testing
 		if(switchX)
 			x-=3;
 		else
@@ -92,10 +116,18 @@ public class adventureGame implements Runnable
 		//Set g to the buffers to draw on with g
 		g = (Graphics2D)bs.getDrawGraphics();
 		
-		
+		/*
+		 * Should render by lowest depth first
+		 * World
+		 * Then objects
+		 */
 		//Draw here *********************************
+		//What we want
 		
 		
+		
+		
+		//What we're testing
 	    g.fillRect(0, 0, width, height);
 	    plane.render(g);
 	    g.setColor(Color.red);

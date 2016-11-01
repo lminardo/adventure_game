@@ -16,6 +16,10 @@ public class Plane
 	Tile[][] plane;
 	BufferedImage tileSet;
 	
+	/*
+	 * This is a 2D array of Tiles.
+	 * Should pass in the width and height.
+	 */
 	public Plane()
 	{
 		plane = new Tile[25][25];
