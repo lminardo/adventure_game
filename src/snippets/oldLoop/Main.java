@@ -1,4 +1,4 @@
-package adventure_game;
+package snippets.oldLoop;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
