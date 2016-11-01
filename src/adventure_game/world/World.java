@@ -5,9 +5,12 @@ Start Date: Nov 1, 2016
  */
 package adventure_game.world;
 
+import java.awt.Graphics;
+
 public class World
 {
 	Plane[] world;
+	private int currPlane = 0;
 	
 	/*
 	 * This will be the whole world.
@@ -19,6 +22,15 @@ public class World
 	 */
 	public World()
 	{
+		world = new Plane[1];
 		
+		for(int i=0;i<world.length;i++)
+		{
+			world[i] = new Plane();
+		}
+	}
+	public void render(Graphics g)
+	{
+		world[currPlane].render(g);
 	}
 }

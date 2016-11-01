@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
-import adventure_game.world.Plane;
+import adventure_game.world.World;
 
 public class adventureGame implements Runnable
 {
@@ -39,16 +39,14 @@ public class adventureGame implements Runnable
 	int y;
 	boolean switchX = false;
 	boolean switchY = false;
-	Plane plane;
+	World world;
 	
 	public adventureGame(String title, int width, int height)
 	{
+		//What we want
 		this.width = width;
 		this.height = height;
 		this.title = title;
-		//What we want
-		
-		
 		
 		
 		//What we're testing
@@ -64,15 +62,14 @@ public class adventureGame implements Runnable
 	private void init()
 	{
 		//What we want
-		
+		display = new Display(width, height, title);
 		
 		
 		
 		//What we're testing
-		display = new Display(width, height, title);
 		x = width/2;
 		y = height/2;
-		plane = new Plane();
+		world = new World();
 	}
 	
 	private void update()
@@ -129,7 +126,7 @@ public class adventureGame implements Runnable
 		
 		//What we're testing
 	    g.fillRect(0, 0, width, height);
-	    plane.render(g);
+	    world.render(g);
 	    g.setColor(Color.red);
 	    g.fillRect(x, y, 16, 16);
 	    
@@ -191,6 +188,11 @@ public class adventureGame implements Runnable
 			return;
 		running = true;
 	}
+	/*
+	 * Will eventually get rid of main method
+	 * We should create a launcher class that creates a new adventureGame object
+	 * It should send the width and height from there
+	 */
 	public static void main(String[] args)
 	{
 		adventureGame gl = new adventureGame("Adventure", 800, 600);
