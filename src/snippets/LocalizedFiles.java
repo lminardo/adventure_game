@@ -13,12 +13,14 @@ import javax.imageio.ImageIO;
 public class LocalizedFiles
 {
 	BufferedImage img;
+	BufferedImage img2;
 	
 	public LocalizedFiles()
 	{
 		try
 		{
 			img = ImageIO.read(getClass().getResource("/Tiles.png"));
+			img2 = ImageIO.read(getClass().getResource("/tiles/Tiles.png"));
 		} catch (IOException e)
 		{
 			e.printStackTrace();
@@ -27,7 +29,15 @@ public class LocalizedFiles
 		{
 			for(int j=0;j<img.getWidth()/16;j++)
 			{
-				System.out.print(img.getRGB(j, i));
+				System.out.println(img.getRGB(j, i) + "Image 1");
+			}
+		}
+		
+		for(int i=0;i<img2.getHeight()/16;i++)
+		{
+			for(int j=0;j<img2.getWidth()/16;j++)
+			{
+				System.out.println(img2.getRGB(j, i) + "Image 2");
 			}
 		}
 	}
