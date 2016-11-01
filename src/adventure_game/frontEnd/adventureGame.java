@@ -9,8 +9,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
-import adventure_game.world.World;
-
 public class adventureGame implements Runnable
 {
 	//Essential
@@ -39,7 +37,6 @@ public class adventureGame implements Runnable
 	int y;
 	boolean switchX = false;
 	boolean switchY = false;
-	World world;
 	
 	public adventureGame(String title, int width, int height)
 	{
@@ -69,7 +66,6 @@ public class adventureGame implements Runnable
 		//What we're testing
 		x = width/2;
 		y = height/2;
-		world = new World();
 	}
 	
 	private void update()
@@ -126,7 +122,6 @@ public class adventureGame implements Runnable
 		
 		//What we're testing
 	    g.fillRect(0, 0, width, height);
-	    world.render(g);
 	    g.setColor(Color.red);
 	    g.fillRect(x, y, 16, 16);
 	    
