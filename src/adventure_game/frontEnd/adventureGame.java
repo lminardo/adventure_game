@@ -1,5 +1,5 @@
 /*
-Name of File: GameLoops.java
+Name of File: adventureGame.java
 Programmer: Tyler Dobbs
 Start Date: Nov 1, 2016
  */
@@ -8,6 +8,8 @@ package adventure_game.frontEnd;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+
+import adventure_game.world.Plane;
 
 public class adventureGame implements Runnable
 {
@@ -26,11 +28,14 @@ public class adventureGame implements Runnable
 	private Graphics2D g;
 	
 	
+	
+	
 	//Testing variables below
 	int x;
 	int y;
 	boolean switchX = false;
 	boolean switchY = false;
+	Plane plane;
 	
 	public adventureGame(String title, int width, int height)
 	{
@@ -41,9 +46,15 @@ public class adventureGame implements Runnable
 	
 	private void init()
 	{
+		/*
+		 * Do anything before the main game loop starts
+		 * Add any listeners
+		 * Initialize any objects
+		 */
 		display = new Display(width, height, title);
 		x = width/2;
 		y = height/2;
+		plane = new Plane();
 	}
 	
 	private void update()
@@ -84,9 +95,13 @@ public class adventureGame implements Runnable
 		
 		//Draw here *********************************
 		
+		
 	    g.fillRect(0, 0, width, height);
+	    plane.render(g);
 	    g.setColor(Color.red);
 	    g.fillRect(x, y, 16, 16);
+	    
+	    
 		//End draw **********************************
 	    
 	    
@@ -102,33 +117,34 @@ public class adventureGame implements Runnable
 		final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 		long lastLoopTime = System.nanoTime(); 
 
-	   while (running)
-	   {
-		  long now = System.nanoTime();
-		  long updateLength = now - lastLoopTime;
-		  lastLoopTime = now;
-		
-		  lastFpsTime += updateLength;
-		  currentFPS++;
-		
-		  if (lastFpsTime >= 1000000000)
-		  {
-			  display.getFrame().setTitle(title + " " + currentFPS +" FPS");
-		      lastFpsTime = 0;
-		      currentFPS = 0;
-		  }
+		while (running)
+		{
+			long now = System.nanoTime();
+			long updateLength = now - lastLoopTime;
+			lastLoopTime = now;
+			
+			lastFpsTime += updateLength;
+			currentFPS++;
+			
+			if (lastFpsTime >= 1000000000)
+			{
+				display.getFrame().setTitle(title + " " + currentFPS +" FPS");
+			    lastFpsTime = 0;
+			    currentFPS = 0;
+			}
+			  
+			update();
+			render();
 		  
-		  update();
-		  render();
-		  
-		  try
-		  {
+			try
+			{
 			  	Thread.sleep((lastLoopTime-System.nanoTime() + OPTIMAL_TIME)/1000000);
-		  }catch(Exception e)
-		  {
+			}catch(Exception e)
+			{
 				  
-		  }
+			}
 		}
+		
 		stop();
 	}
 	public void stop()
