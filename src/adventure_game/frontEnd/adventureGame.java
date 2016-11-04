@@ -9,6 +9,14 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
+import com.adventureGame.HUD.WorldTraverse;
+import com.adventureGame.IO.KeyboardInput;
+import com.adventureGame.IO.Saver;
+
+import adventure_game.world.Tile;
+import adventure_game.world.World;
+
+
 public class adventureGame implements Runnable
 {
 	//Essential
@@ -27,7 +35,7 @@ public class adventureGame implements Runnable
 	private Graphics2D g;
 	
 	//What we want
-	
+	KeyboardInput keys = new KeyboardInput();
 	
 	
 	
@@ -36,7 +44,12 @@ public class adventureGame implements Runnable
 	int x;
 	int y;
 	boolean switchX = false;
-	boolean switchY = false;
+	
+	int x2;
+	int y2;
+	boolean switchY2 = false;
+	World world;
+	WorldTraverse wt;
 	
 	public adventureGame(String title, int width, int height)
 	{
@@ -46,7 +59,9 @@ public class adventureGame implements Runnable
 		this.title = title;
 		
 		
+		
 		//What we're testing
+		
 		
 		
 	}
@@ -60,39 +75,49 @@ public class adventureGame implements Runnable
 	{
 		//What we want
 		display = new Display(width, height, title);
+		display.getFrame().addKeyListener(keys);
+		//Saver.createGameDirectories();
 		
 		
 		
+		Saver.createGameDirectories();
 		//What we're testing
 		x = width/2;
 		y = height/2;
+		x2 = width/4;
+		y2 = height/4;
+		
+		world = new World();
+		wt = new WorldTraverse(world);
+		System.out.println(World.tileCount);
+		Saver.saveWorld(new World());
 	}
 	
 	private void update()
 	{
 		//What we want
-		
+		keys.update();
 		
 		
 		
 		//What we're testing
 		if(switchX)
-			x-=3;
+			x-=6;
 		else
 			x+=6;
-		if(switchY)
-			y-=5;
-		else
-			y+=5;
-		
-		if(y > (height/2)+100)
-			switchY = !switchY;
-		if(y < (height/2)-100)
-			switchY = !switchY;
 		if(x > (width/2)+100)
 			switchX = !switchX;
 		if(x < (width/2)-100)
 			switchX = !switchX;
+		
+		if(switchY2)
+			y2-=6;
+		else
+			y2+=6;
+		if(y2 > (height/4)+125)
+			switchY2 = !switchY2;
+		if(y2 < (height/4)-125)
+			switchY2 = !switchY2;
 		
 	}
 	private void render()
@@ -122,9 +147,24 @@ public class adventureGame implements Runnable
 		
 		//What we're testing
 	    g.fillRect(0, 0, width, height);
+	    world.render(g);
 	    g.setColor(Color.red);
-	    g.fillRect(x, y, 16, 16);
 	    
+	    
+	    for(int i=0;i<width;i+=Tile.SCALED_TILE_SIZE)
+	    {
+	    	g.drawLine(i, 0, i, height);
+	    }
+	    for(int j=0;j<height;j+=Tile.SCALED_TILE_SIZE)
+	    {
+	    	g.drawLine(0, j, width, j);
+	    }
+	    
+	    g.setColor(Color.blue);
+	    g.fillRect(x, y, Tile.SCALED_TILE_SIZE, Tile.SCALED_TILE_SIZE);
+	    
+	    g.setColor(Color.orange);
+	    g.fillRect(x2, y2, Tile.SCALED_TILE_SIZE, Tile.SCALED_TILE_SIZE);
 	    
 		//End draw **********************************
 	    
@@ -190,7 +230,7 @@ public class adventureGame implements Runnable
 	 */
 	public static void main(String[] args)
 	{
-		adventureGame gl = new adventureGame("Adventure", 800, 600);
+		adventureGame gl = new adventureGame("Adventure", 1024, 768);
 		gl.start();
 		gl.run();
 	}
