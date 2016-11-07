@@ -9,10 +9,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
-import com.adventureGame.HUD.WorldTraverse;
-import com.adventureGame.IO.KeyboardInput;
-import com.adventureGame.IO.Saver;
-
+import adventureGame.HUD.WorldTraverse;
+import adventureGame.IO.KeyboardInput;
+import adventureGame.IO.Saver;
+import adventure_game._TESTentities._TESTPlayer;
 import adventure_game.world.Tile;
 import adventure_game.world.World;
 
@@ -35,7 +35,7 @@ public class adventureGame implements Runnable
 	private Graphics2D g;
 	
 	//What we want
-	KeyboardInput keys = new KeyboardInput();
+	public static KeyboardInput keys = new KeyboardInput();
 	
 	
 	
@@ -50,6 +50,7 @@ public class adventureGame implements Runnable
 	boolean switchY2 = false;
 	World world;
 	WorldTraverse wt;
+	_TESTPlayer player;
 	
 	public adventureGame(String title, int width, int height)
 	{
@@ -82,6 +83,7 @@ public class adventureGame implements Runnable
 		
 		Saver.createGameDirectories();
 		//What we're testing
+		player = new _TESTPlayer();
 		x = width/2;
 		y = height/2;
 		x2 = width/4;
@@ -97,7 +99,7 @@ public class adventureGame implements Runnable
 	{
 		//What we want
 		keys.update();
-		
+		player.update();
 		
 		
 		//What we're testing
@@ -148,6 +150,8 @@ public class adventureGame implements Runnable
 		//What we're testing
 	    g.fillRect(0, 0, width, height);
 	    world.render(g);
+	    player.render(g);
+	    
 	    g.setColor(Color.red);
 	    
 	    

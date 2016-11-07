@@ -3,7 +3,7 @@ Name of File: Saver.java
 Programmer: Tyler Dobbs
 Start Date: Nov 3, 2016
  */
-package com.adventureGame.IO;
+package adventureGame.IO;
 
 import java.io.File;
 import java.io.FileNotFoundException;

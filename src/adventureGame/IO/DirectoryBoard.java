@@ -3,7 +3,7 @@ Name of File: DirectoryWorker.java
 Programmer: Tyler Dobbs
 Start Date: Nov 3, 2016
  */
-package com.adventureGame.IO;
+package adventureGame.IO;
 
 public class DirectoryBoard
 {

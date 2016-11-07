@@ -1,4 +1,4 @@
-package snippets.oldLoop;
+package luke.oldLoop;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

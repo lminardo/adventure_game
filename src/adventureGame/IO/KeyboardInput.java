@@ -3,7 +3,7 @@ Name of File: KeyboardInput.java
 Programmer: Tyler Dobbs
 Start Date: Nov 3, 2016
  */
-package com.adventureGame.IO;
+package adventureGame.IO;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -18,6 +18,11 @@ public class KeyboardInput implements KeyListener
 	public boolean right;
 	public boolean left;
 	public boolean down;
+	
+	public boolean Pup;
+	public boolean Pright;
+	public boolean Pleft;
+	public boolean Pdown;
 	
 	public KeyboardInput()
 	{
@@ -47,6 +52,11 @@ public class KeyboardInput implements KeyListener
 		left = keys[KeyEvent.VK_LEFT];
 		down = keys[KeyEvent.VK_DOWN];
 		right = keys[KeyEvent.VK_RIGHT];
+		
+		Pup = keys[KeyEvent.VK_W];
+		Pleft = keys[KeyEvent.VK_A];
+		Pdown = keys[KeyEvent.VK_S];
+		Pright = keys[KeyEvent.VK_D];
 		
 		if(up)
 		{
