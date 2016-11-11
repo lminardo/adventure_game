@@ -5,7 +5,7 @@ import java.util.ArrayList;
 class Inventory
 {
     private int size;
-    final int MAX_SIZE = 100, CATEGORIES = 1, KEY_ITEMS = 25/*if we want 25 key items*/;
+    static final int MAX_SIZE = 100, CATEGORIES = 1, KEY_ITEMS = 25/*if we want 25 key items*/;
     private ArrayList<Item> inventory;
 
     Inventory(){}

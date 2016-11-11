@@ -2,7 +2,7 @@ package snippets.inventory_test;
 
 import java.awt.image.BufferedImage;
 
-class Item extends Inventory
+class Item
 {
     private int itemId, itemValue;
     BufferedImage itemImage;
@@ -17,7 +17,7 @@ class Item extends Inventory
 
     private void determineProperties()
     {
-        isDropable = itemId < super.KEY_ITEMS; //all items with itemId <25 is key and can't be dropped
+        isDropable = itemId < Inventory.KEY_ITEMS; //all items with itemId <25 is key and can't be dropped
         //if(itemId = x) itemImage = y;
         //if(itemId = x) itemValue = y;
         if(isDropable)
