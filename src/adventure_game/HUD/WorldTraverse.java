@@ -3,7 +3,7 @@ Name of File: WorldTraverse.java
 Programmer: Tyler Dobbs
 Start Date: Nov 3, 2016
  */
-package adventureGame.HUD;
+package adventure_game.HUD;
 
 import java.awt.Color;
 import java.awt.Graphics;

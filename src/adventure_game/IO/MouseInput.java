@@ -3,7 +3,7 @@ Name of File: MouseInput.java
 Programmer: Tyler Dobbs
 Start Date: Nov 3, 2016
  */
-package adventureGame.IO;
+package adventure_game.IO;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

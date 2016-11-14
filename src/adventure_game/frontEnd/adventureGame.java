@@ -9,9 +9,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
-import adventureGame.HUD.WorldTraverse;
-import adventureGame.IO.KeyboardInput;
-import adventureGame.IO.Saver;
+import adventure_game.HUD.WorldTraverse;
+import adventure_game.IO.KeyboardInput;
+import adventure_game.IO.Saver;
 import adventure_game._TESTentities._TESTPlayer;
 import adventure_game.world.Tile;
 import adventure_game.world.World;

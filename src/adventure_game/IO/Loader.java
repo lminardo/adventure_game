@@ -3,7 +3,7 @@ Name of File: Loader.java
 Programmer: Tyler Dobbs
 Start Date: Nov 3, 2016
  */
-package adventureGame.IO;
+package adventure_game.IO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
