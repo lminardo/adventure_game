@@ -20,6 +20,6 @@ public class WorldTraverse
 	public void render(Graphics g)
 	{
 		g.setColor(Color.CYAN);
-		g.drawString(world.toString(), 0, 15);
+		g.drawString(world.toString() + " peanut butter.", 0, 15);
 	}
 }

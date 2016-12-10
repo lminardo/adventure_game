@@ -37,7 +37,7 @@ public class Section
 		{
 			for(int j=0;j<section[i].length;j++)
 			{
-				section[i][j] = new Tile(tileSheet, (int)Math.floor(Math.random()*2));
+				section[i][j] = new Tile(tileSheet, (int)Math.floor(Math.random()*5));
 			}
 		}
 	}
